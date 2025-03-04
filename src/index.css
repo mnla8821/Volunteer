@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+  --white-blue: #f8f4eb;
+  --light-blue: #91c9e4;
+  --mid-blue: #759bc2;
+  --blue: #4882aa;
+  --dark-blue: #1f3543;
+  --sugar: #c4c4c4;
+  --light-blue-gradient: #91c8e4de;
+  --rectangle: url("./assets/Images/Home/Rectangle.png");
+  --rectangle-footer: url("./assets/Images/Footer/footer.png");
+}
+
+p {
+  direction: rtl;
+}
+
+* {
+  font-family: "Inter";
+  font-style: italic;
+}
