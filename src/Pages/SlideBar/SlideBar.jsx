@@ -11,23 +11,46 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./SlideBar.css";
 import { Navigation } from "swiper/modules";
+import { useEffect, useState } from "react";
 
 const SlideBar = () => {
+  const [valueOfWidth, setValueOfWidth] = useState(false);
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      setValueOfWidth(true);
+    } else {
+      setValueOfWidth(false);
+    }
+  };
+
+  useEffect(() => {
+    // Define An Event When Load A Component
+    window.addEventListener("resize", handleResize);
+
+    // Execute A Function Once When A Function Is Uploaded
+    handleResize();
+
+    // Clean Event When End Event
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div className="w-full bg-[var(--white-blue)] h-auto min-h-[120vh] flex flex-col  items-center">
-      <h1 className="font-bold text-[var(--blue)] text-4xl leading-10 p-14">
+    <div className="w-full bg-[var(--white-blue)] h-auto min-h-[120vh] flex flex-col  items-center max-md:flex-col ">
+      <h1 className="font-bold text-[var(--blue)] text-4xl leading-10 p-14 title-slide">
         مجالات الكورسات المتاحة
       </h1>
       {/* Begin a slider  */}
-      <div className="w-full h-[100vh] flex items-end">
+      <div className="w-full h-[100vh] flex items-end max-md:items-center max-md:px-10 max-md:h-[140vh] max-sm:h-[120vh]">
         <Swiper
           navigation={true}
           modules={[Navigation]}
-          slidesPerView={3.5}
+          slidesPerView={valueOfWidth == true ? 1 : 3.5}
           spaceBetween={80}
-          className="mySwiper w-full min-h-[80%] "
+          className="mySwiper w-full min-h-[80%]  "
         >
-          <SwiperSlide className="  bg-[var(--light-blue)]  rounded-2xl flex justify-center items-center p-5">
+          <SwiperSlide className="  bg-[var(--light-blue)]  rounded-2xl flex justify-center items-center p-5 max-md:flex-col ">
             <div className="bg-[var(--sugar)] pt-4 px-1.5 pb-0.5 rounded-xl">
               <img src={img4} alt="" className="h-fit w-full " />
             </div>
