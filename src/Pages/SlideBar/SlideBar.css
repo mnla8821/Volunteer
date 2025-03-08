@@ -69,11 +69,19 @@
   .parent-swiper {
     height: 135vh;
   }
+  .title-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media (min-width: 480px) and (max-width: 560px) {
   .title-slide {
     font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
